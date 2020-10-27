@@ -1,0 +1,69 @@
+<h1>EJERCICIO: Reactive Form</h1>
+
+<hr>
+
+<form autocomplete="off" [formGroup]="forma" (ngSubmit)="saveForm()">
+
+  <div class="container">
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Nombre</label>
+      <div class="col-8">
+        <input class="form-control" type="text" placeholder="Escribe tu nombre" formControlName="nombre"
+          [class.is-invalid]="isFieldValid('nombre')">
+        <small class="form-text text-danger" *ngIf="isFieldValid('nombre')">El nombre debe tener al menos 3
+          letras</small>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Apellido</label>
+      <div class="col-8">
+        <input class="form-control" type="text" placeholder="Escribe tu apellido" formControlName="apellido"
+          [class.is-invalid]="isFieldValid('apellido')">
+        <small class="form-text text-danger" *ngIf="isFieldValid('apellido')">Indica un apellido</small>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Edad</label>
+      <div class="col-8">
+        <input class="form-control" type="number" placeholder="Escribe tu edad" formControlName="edad">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Email</label>
+      <div class="col-8">
+        <input class="form-control" type="email" placeholder="Escribe tu email" formControlName="email"
+          [class.is-invalid]="isFieldValid('email')">
+        <small class="form-text text-danger" *ngIf="isFieldValid('email')">Introduzca un email correcto</small>
+      </div>
+    </div>
+
+    <!-- formGroupName="direccion" ATENTO AL formGroupName -->
+    <div class="form-group row" formGroupName="direccion">
+      <label class="col-2 col-form-label">Dirección</label>
+      <div class="col-8">
+        <input class="form-control" type="text" placeholder="Escribe tu calle" formControlName="calle"
+          [class.is-invalid]="isFieldValid('direccion.calle')">
+      </div>
+      <div class="col-8">
+        <input class="form-control" type="text" placeholder="Escribe tu ciudad" formControlName="ciudad"
+          [class.is-invalid]="isFieldValid('direccion.ciudad')">
+      </div>
+      <div class="col-8">
+        <input class="form-control" type="text" placeholder="Escribe tu provincia" formControlName="provincia"
+          [class.is-invalid]="isFieldValid('direccion.provincia')">
+      </div>
+      <div class="col-8">
+        <input class="form-control" type="text" placeholder="Escribe tu pais" formControlName="pais"
+          [class.is-invalid]="isFieldValid('direccion.pais')">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <button type="submit" class="btn btn-block btn-primary">Enviar</button>
+    </div>
+  </div>
+
+</form>

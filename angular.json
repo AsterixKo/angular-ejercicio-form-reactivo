@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-ejercicio-form-reactivo"
+    }
+  },
+  "defaultProject": "angular-ejercicio-form-reactivo",
+  "cli": {
+    "analytics": false
+  }
 }
